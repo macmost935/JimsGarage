@@ -13,25 +13,4 @@ http:
         contentSecurityPolicy: "default-src 'self'"     
         customRequestHeaders:
           X-Forwarded-Proto: https
-    https-redirectscheme:
-      redirectScheme:
-        scheme: https
-        permanent: true
-
-  routers:
-    portainer:
-      entryPoints:
-        - "https"
-      rule: "Host(`portainer-demo.jimsgarage.co.uk`)"
-      middlewares:
-        - default-security-headers
-        - https-redirectscheme
-      tls: {}
-      service: portainer
-
-  services:
-    portainer:
-      loadBalancer:
-        servers:
-          - url: "https://192.168.200.122:9443"
-        passHostHeader: true
+    
